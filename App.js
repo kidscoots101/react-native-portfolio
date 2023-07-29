@@ -1,12 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image } from 'react-native';
+import Positions from './components/Positions';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+<View style={{flexDirection: 'row'}}>
+<Text style={styles.header}>Hi 👋 I'm Caleb</Text>
+<Image source={require('./assets/icon.jpeg')} style={styles.image}/>
+</View>
       <StatusBar style="auto" />
-    </View>
+      <Positions />
+      <Projects />
+      <Skills />
+      </ScrollView>
+
+    </SafeAreaView>
   );
 }
 
@@ -14,7 +26,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
+  header: {
+    marginTop: 20,
+    marginLeft: 25,
+    fontWeight: 'bold',
+    fontSize: 30
+  },
+  image:{
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+    alignSelf: 'flex-end',
+    marginLeft: 90
+  }
 });
